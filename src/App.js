@@ -4,14 +4,17 @@ import Axios from "axios";
 
 function App() {
   const [mealName, setmealName] = useState("");
+  const [recipes, setrecipes] = useState([]);
 
   var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
 
+  // getRecipes function GETS data from provided url and save the data to "recipes" array
   async function getRecipes() {
     var result = await Axios.get(url);
-    console.log(result.data);
+    setrecipes(result.data.meals);
   }
 
+  // Runs getRecipes function whenever user submits a search. PreventDefault to disable website refresh upon submit.
   const onSubmit = (e) => {
     e.preventDefault();
     getRecipes();
@@ -19,7 +22,11 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={onSubmit}>
+      {/* Temporary title for the page */}
+      <h1>Search for Meal</h1>
+
+      {/* Search Input and passes value of the input to getRecipes function */}
+      <form className="searchForm" onSubmit={onSubmit}>
         <input
           type="text"
           placeholder="Type meal name"
@@ -28,6 +35,18 @@ function App() {
         ></input>
         <input type="submit" value="Search" />
       </form>
+
+      {/* Returns searched recipe name and image */}
+      <div>
+        {recipes.map((recipe) => {
+          return (
+            <div className="recipeTile">
+              <img className="image" src={recipe["strMealThumb"]} />
+              <p className="mealName">{recipe["strMeal"]}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
