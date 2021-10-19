@@ -36,6 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
 .recipeTile {
   display: inline-flex;
   width: 30%;
@@ -49,4 +50,18 @@
 .searchForm {
   display: flex;
   padding: 20px 0;
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.card {
+  width: 10%;
+  text-align: center;
+}
+
+.photo {
+  width: 100%;
+
 }

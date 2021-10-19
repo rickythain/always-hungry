@@ -1,6 +1,11 @@
 import "./App.css";
+
 import React, { useState } from "react";
 import Axios from "axios";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import Categories from "./categories";
+import RandomMeal from "./RandomMeal";
+
 
 function App() {
   const [mealName, setmealName] = useState("");
@@ -21,8 +26,12 @@ function App() {
   };
 
   return (
+
     <div className="App">
       {/* Temporary title for the page */}
+
+      <RandomMeal />
+      <Categories />
       <h1>Search for Meal</h1>
 
       {/* Search Input and passes value of the input to getRecipes function */}
@@ -48,6 +57,10 @@ function App() {
         })}
       </div>
     </div>
+
+    <>
+    </>
+
   );
 }
 
