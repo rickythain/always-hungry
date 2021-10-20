@@ -15,3 +15,32 @@
 .trial {
   white-space: pre-wrap;
 }
+
+.recipeTile {
+  display: inline-flex;
+  width: 30%;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+}
+
+.searchForm {
+  display: flex;
+  padding: 20px 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.card-random {
+  width: 10%;
+  text-align: center;
+}
+
+.photo {
+  width: 100%;
+}

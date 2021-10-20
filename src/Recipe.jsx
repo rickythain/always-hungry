@@ -89,7 +89,7 @@ function Recipe() {
             })}
           </div>
           <p>Instructions</p>
-          <p class="trial">{meal.strInstructions}</p>
+          <p className="trial">{meal.strInstructions}</p>
         </div>
       </div>
     </div>
