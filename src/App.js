@@ -73,9 +73,6 @@ function App() {
       </div>
     </div>
 
-    <>
-    </>
-
   );
 }
 
