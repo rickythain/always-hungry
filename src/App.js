@@ -34,18 +34,6 @@ function App() {
     getRecipes();
   };
 
-  // obtain data from api
-  React.useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood")
-      .then((data) => {
-        return data.json();
-      })
-      .then((dataJson) => {
-        setMeals(Array.from(dataJson.meals));
-        console.log(meals);
-      });
-  }, []);
-
   // updates query result section based on result of search on name
   React.useEffect(() => {
     setQueryResult(recipes);
@@ -76,7 +64,8 @@ function App() {
 
       {/* Result section of query */}
       <div>
- <h1>main result section</h1>
+        <h1>main result section</h1>
+        {console.log("queryResult" + queryResult)}
         {queryResult ? (
           queryResult.map((result, index) => {
             return <MealCard key={index} meal={result} />;
