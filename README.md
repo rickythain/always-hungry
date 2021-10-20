@@ -1,6 +1,10 @@
 # Always-Hungry.com
 
-Always-Hungry.com is an online cooking recipe website to help people cook delicious food to their liking.
+Always-Hungry.com is an online cooking recipe website to help people cook delicious food to their liking. We provide list of recipes that are randomly generated for users' view. Users can search for the recipe they are looking for by using food name or category.
+
+# Demo-Link
+
+For those who would like to view our website, can visit https://always-hungry.vercel.app
 
 # Pre-Installation
 
@@ -46,4 +50,4 @@ Moreover, having these extensions will help you to speed up the development proc
 
 6.  **Open the source code and start editing!**
 
-    Your site is now running at `http://localhost:3000`!
+    Your site is now running at http://localhost:3000!
