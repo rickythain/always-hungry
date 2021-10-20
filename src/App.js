@@ -24,6 +24,7 @@ function App() {
       setrecipes(result.data.meals);
     } catch (error) {
       console.log(error);
+      setrecipes([]);
     }
   }
 
