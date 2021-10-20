@@ -1,8 +1,10 @@
 import React from "react";
+import MealCard from "./MealCard";
 
-export default function Categories() {
+export default function Categories({ passResult }) {
   const [list, setList] = React.useState([]);
   const [category, selectCategory] = React.useState(["", "", "", ""]);
+  const [meals, setMeals] = React.useState([]);
 
   React.useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
@@ -13,6 +15,28 @@ export default function Categories() {
         setList(dataJson.categories);
       });
   }, []);
+
+  React.useEffect(() => {
+    let categoryName = category[1];
+    let addressGetMealOnCategory =
+      "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+    let fullAddress = addressGetMealOnCategory + categoryName;
+
+    if (category[1]) {
+      fetch(fullAddress)
+        .then((data) => {
+          return data.json();
+        })
+        .then((dataJson) => {
+          setMeals(Array.from(dataJson.meals));
+          // console.log("meals: " + JSON.stringify(dataJson.meals, null, 2));
+        });
+    }
+  }, [category]);
+
+  React.useEffect(() => {
+    passResult(meals);
+  }, [meals]);
   return (
     <div>
       <select
@@ -37,11 +61,13 @@ export default function Categories() {
           );
         })}
       </select>
-      <div className="card">
+      <div className="card-random">
         <h4>{category[1]}</h4>
         <img className="photo" src={category[3]} alt="" />
       </div>
-      <p>{category[2]}</p>
+      <div>
+        <p>{category[2]}</p>
+      </div>
     </div>
   );
 }

@@ -1,15 +1,18 @@
 import "./App.css";
-
-import React, { useState } from "react";
 import Axios from "axios";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import Recipe from "./Recipe.jsx";
+import MealCard from "./MealCard";
 import Categories from "./categories";
 import RandomMeal from "./RandomMeal";
-
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import React, { Component, useState } from "react";
 
 function App() {
+  const [meals, setMeals] = React.useState([]);
   const [mealName, setmealName] = useState("");
   const [recipes, setrecipes] = useState([]);
+  const [categoryResult, setCategoryResult] = useState([]);
+  const [queryResult, setQueryResult] = useState([]);
 
   var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
 
@@ -30,13 +33,33 @@ function App() {
     getRecipes();
   };
 
+  // obtain data from api
+  React.useEffect(() => {
+    fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood")
+      .then((data) => {
+        return data.json();
+      })
+      .then((dataJson) => {
+        setMeals(Array.from(dataJson.meals));
+        console.log(meals);
+      });
+  }, []);
+
+  // updates query result section based on result of search on name
+  React.useEffect(() => {
+    setQueryResult(recipes);
+  }, [recipes]);
+
+  // updates query result section based on result of search on category
+  React.useEffect(() => {
+    setQueryResult(categoryResult);
+  }, [categoryResult]);
+
   return (
-
     <div className="App">
-      {/* Temporary title for the page */}
-
+      <h1>Home</h1>
       <RandomMeal />
-      <Categories />
+      <Categories passResult={setCategoryResult} />
       <h1>Search for Meal</h1>
 
       {/* Search Input and passes value of the input to getRecipes function */}
@@ -50,16 +73,12 @@ function App() {
         <input type="submit" value="Search" />
       </form>
 
-      {/* Returns searched recipe name and image */}
+      {/* Result section of query */}
       <div>
-        {recipes ? (
-          recipes.map((recipe) => {
-            return (
-              <div className="recipeTile">
-                <img className="image" src={recipe["strMealThumb"]} />
-                <p className="mealName">{recipe["strMeal"]}</p>
-              </div>
-            );
+ <h1>main result section</h1>
+        {queryResult ? (
+          queryResult.map((result, index) => {
+            return <MealCard key={index} meal={result} />;
           })
         ) : (
           <div className="noRecipeError">
@@ -72,7 +91,6 @@ function App() {
         )}
       </div>
     </div>
-
   );
 }
 
