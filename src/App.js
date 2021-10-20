@@ -10,8 +10,13 @@ function App() {
 
   // getRecipes function GETS data from provided url and save the data to "recipes" array
   async function getRecipes() {
-    var result = await Axios.get(url);
-    setrecipes(result.data.meals);
+    try {
+      var result = await Axios.get(url);
+
+      setrecipes(result.data.meals);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // Runs getRecipes function whenever user submits a search. PreventDefault to disable website refresh upon submit.
@@ -38,14 +43,24 @@ function App() {
 
       {/* Returns searched recipe name and image */}
       <div>
-        {recipes.map((recipe) => {
-          return (
-            <div className="recipeTile">
-              <img className="image" src={recipe["strMealThumb"]} />
-              <p className="mealName">{recipe["strMeal"]}</p>
-            </div>
-          );
-        })}
+        {recipes ? (
+          recipes.map((recipe) => {
+            return (
+              <div className="recipeTile">
+                <img className="image" src={recipe["strMealThumb"]} />
+                <p className="mealName">{recipe["strMeal"]}</p>
+              </div>
+            );
+          })
+        ) : (
+          <div className="noRecipeError">
+            <h1>Meal isn't found in our kitchen !!!</h1>
+            <p>
+              The recipe you are looking isn't here. Stay tune for future recipe
+              updates
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
