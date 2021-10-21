@@ -1,0 +1,29 @@
+.random-meal-generator {
+  background-color: rgb(243, 208, 119);
+  height: 30%;
+}
+
+.search {
+  background-color: rgb(245, 216, 145);
+  height: 30%;
+  flex-direction: row;
+  width: 100%;
+}
+
+.search > .search-bar {
+  width: 100%;
+}
+
+.search > .category {
+  align-content: center;
+  justify-items: center;
+}
+
+#dropdownMenuButton1 {
+  width: calc(100% - 20rem);
+}
+
+.results {
+  background-color: rgb(230, 221, 199);
+  height: 30%;
+}
