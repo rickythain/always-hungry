@@ -6,6 +6,8 @@ import Categories from "./categories";
 import RandomMeal from "./RandomMeal";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import React, { Component, useState } from "react";
+import { Cart } from "./Context";
+import { useContext } from "react";
 
 function Home() {
   const [meals, setMeals] = React.useState([]);
@@ -13,6 +15,7 @@ function Home() {
   const [recipes, setrecipes] = useState([]);
   const [categoryResult, setCategoryResult] = useState([]);
   const [queryResult, setQueryResult] = useState([]);
+  const { cart, setCart } = useContext(Cart);
 
   var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
 

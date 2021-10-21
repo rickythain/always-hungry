@@ -8,7 +8,6 @@ function MealCard({ meal }) {
   const { cart, setCart } = useContext(Cart);
   return (
     <div>
-      {/* {console.log(meal)} */}
       <Link to={{ pathname: "/recipe", state: { meal: { meal } } }}>
         {meal && (
           <div className="card">
@@ -16,7 +15,6 @@ function MealCard({ meal }) {
             {meal.strMeal}
           </div>
         )}
-        {console.log(meal)}
       </Link>
       {cart.includes(meal) ? (
         <button
@@ -32,7 +30,6 @@ function MealCard({ meal }) {
           className="add"
           onClick={() => {
             setCart([...cart, meal]);
-            console.log(cart);
           }}
         >
           Add to Favourites
