@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Accordion from "react-bootstrap/Accordion";
 
-function Ingredients() {
+function Ingredients({ mealIngredients }) {
   return (
     <div className="meal-ingredient">
       {/* drop down list for ingredients */}
@@ -9,12 +9,15 @@ function Ingredients() {
         <Accordion.Item eventKey="0">
           <Accordion.Header>List of Ingredients</Accordion.Header>
           <Accordion.Body>
-            <ul>flour</ul>
-            <ul>egg</ul>
-            <ul>sugar</ul>
-            <ul>milk</ul>
-            <ul>oil</ul>
-            <ul>baking powder</ul>
+            <ul>
+              {mealIngredients.map((ingredient, index) => {
+                return (
+                  <li key={index}>
+                    {ingredient.ingredient} : {ingredient.quantity}
+                  </li>
+                );
+              })}
+            </ul>
           </Accordion.Body>
         </Accordion.Item>{" "}
       </Accordion>{" "}

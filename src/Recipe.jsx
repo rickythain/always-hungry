@@ -19,7 +19,6 @@ function Recipe() {
   const [mealIngredientList, setMealIngredientList] = React.useState([]);
   const [mealYouTubeLink, setMealYouTubeLink] = React.useState("");
   const [similarMeals, setSimilarMeals] = React.useState([]);
-  const [shareTwitter, setShareTwitter] = React.useState("");
 
   const shuffle = (array) => {
     let currentIndex = array.length,

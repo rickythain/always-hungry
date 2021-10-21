@@ -1,6 +1,7 @@
 import "./App.css";
 import Axios from "axios";
-import Recipe from "./Recipe.jsx";
+// import Recipe from "./Recipe.jsx";
+import Recipe from "./Pages/Recipe.js";
 import MealCard from "./MealCard";
 import Categories from "./categories";
 import RandomMeal from "./RandomMeal";
@@ -17,6 +18,11 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
       </Switch>
+
+      <Switch>
+        <Route path="/recipe" exact component={Recipe} />
+      </Switch>
+
       <Footer />
     </Router>
     // </div>

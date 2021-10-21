@@ -121,3 +121,7 @@
   justify-content: center;
   align-content: center;
 }
+
+.instructions {
+  white-space: pre-wrap;
+}
