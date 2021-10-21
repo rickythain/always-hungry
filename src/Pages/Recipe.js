@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import "../Styles/Recipe.css";
+import "../Styles/Menu.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import Ingredients from "../Component/Ingredients";
@@ -17,6 +18,8 @@ import {
 } from "react-router-dom";
 
 import MenuItem from "../Component/MenuItem.js";
+import heart from "../Assets/heart02.png";
+import favedHeart from "../Assets/full_heart.png";
 
 function Recipe() {
   const { cart, setCart } = useContext(Cart);
@@ -140,29 +143,25 @@ function Recipe() {
       <div className="Recipe-page">
         <div className="Recipe-Image-box">
           <img className="recipe-img" src={meal.strMealThumb}></img>
-        </div>
-        <div className="Ingredients-box">
-          <div>
-            <RecipeContent
-              mealName={meal.strMeal}
-              mealCategory={meal.strCategory}
-            />
-          </div>
-
           <div>
             {cart.some((x) => x.idMeal === meal.idMeal) ? (
               <button
-                className="remove"
+                className="remove removeFav"
                 onClick={() => {
                   setCart(cart.filter((c) => c.idMeal !== mealData.idMeal));
                   localStorage.removeItem(mealData.idMeal);
                 }}
               >
-                Remove from Favourites
+                {/* Remove from Favourites */}
+
+                <div className="fav-window">
+                  <div className="fav-button-text">Remove from Favourites</div>
+                </div>
+                <img className="fav-image" src={favedHeart} />
               </button>
             ) : (
               <button
-                className="add"
+                className="add addFav"
                 onClick={() => {
                   setCart([...cart, mealData]);
                   localStorage.setItem(
@@ -171,9 +170,22 @@ function Recipe() {
                   );
                 }}
               >
-                Add to Favourites
+                {/* Add to Favourites */}
+
+                <div className="fav-window">
+                  <div className="fav-button-text">Add to Favourites</div>
+                </div>
+                <img className="fav-image" src={heart} />
               </button>
             )}
+          </div>
+        </div>
+        <div className="Ingredients-box">
+          <div>
+            <RecipeContent
+              mealName={meal.strMeal}
+              mealCategory={meal.strCategory}
+            />
           </div>
 
           <div>

@@ -37,14 +37,15 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.menuItem .name-category {
+/* .menuItem .name-category {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
   align-content: center;
-}
+} */
 
 .menuItem:hover {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
@@ -71,6 +72,75 @@
 
 .menuItem p {
   /* margin-left: 20px; */
+}
+
+.menuItem .name-category {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  align-content: center;
+  height: 100px;
+}
+
+.addFav,
+.removeFav {
+  height: 50px;
+  position: absolute;
+  right: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px;
+}
+
+.fav-image {
+  width: 40px;
+  height: 40px;
+}
+
+.addFav:hover > .fav-window {
+  display: flex;
+}
+
+.addFav:hover .fav-button-text {
+  transition: 0.5s ease-in;
+  transform: translate(0, 0);
+}
+
+.removeFav:hover > .fav-window {
+  display: flex;
+}
+
+.removeFav:hover .fav-button-text {
+  background-color: rgb(83, 83, 83);
+  transition: 0.5s ease-in;
+  transform: translate(0, 0);
+  font-size: 1rem;
+}
+
+.menuItem .fav-window {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 45px;
+  font-size: 1.2rem;
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.menuItem .fav-button-text {
+  background-color: white;
+  box-shadow: 5px 10px 2px 5px black;
+  font-size: 1.2rem;
+  height: 40px;
+  width: 200px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(200px, 0);
 }
 
 @media only screen and (max-width: 1300px) {

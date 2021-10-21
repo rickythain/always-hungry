@@ -14,7 +14,35 @@
   align-content: flex-start;
   align-self: flex-start;
   width: 50%;
+  position: relative;
 }
+
+.Recipe-Image-box .fav-window {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 45px;
+  font-size: 1.2rem;
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.Recipe-Image-box .fav-button-text {
+  background-color: white;
+  box-shadow: 5px 10px 2px 5px black;
+  font-size: 1.2rem;
+  height: 40px;
+  width: 200px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(200px, 0);
+}
+
 .recipe-img {
   display: flex;
   max-width: 90%;
