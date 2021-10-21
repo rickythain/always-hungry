@@ -8,7 +8,6 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import React, { Component, useState } from "react";
 
 function App() {
-  const [meals, setMeals] = React.useState([]);
   const [mealName, setmealName] = useState("");
   const [recipes, setrecipes] = useState([]);
   const [categoryResult, setCategoryResult] = useState([]);
@@ -16,16 +15,21 @@ function App() {
 
   var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
 
+  var url2 = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${mealName}`;
+
   // getRecipes function GETS data from provided url and save the data to "recipes" array
   async function getRecipes() {
-    try {
-      var result = await Axios.get(url);
-
+    var result = await Axios.get(url);
+    if (result.data.meals == 0 || result.data.meals == null) {
+      NoResult();
+    } else {
       setrecipes(result.data.meals);
-    } catch (error) {
-      console.log(error);
-      setrecipes([]);
     }
+  }
+
+  async function NoResult() {
+    var result = await Axios.get(url2);
+    setrecipes(result.data.meals);
   }
 
   // Runs getRecipes function whenever user submits a search. PreventDefault to disable website refresh upon submit.
@@ -55,7 +59,7 @@ function App() {
       <form className="searchForm" onSubmit={onSubmit}>
         <input
           type="text"
-          placeholder="Type meal name"
+          placeholder="Type meal/ingredient name"
           value={mealName}
           onChange={(e) => setmealName(e.target.value)}
         ></input>
@@ -65,7 +69,6 @@ function App() {
       {/* Result section of query */}
       <div>
         <h1>main result section</h1>
-        {console.log("queryResult" + queryResult)}
         {queryResult ? (
           queryResult.map((result, index) => {
             return <MealCard key={index} meal={result} />;
