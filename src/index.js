@@ -6,20 +6,25 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <App />
-        </Route>
+        <Route exact path="/"> */}
+    <App />
+    {/* </Route>
 
         <Route path="/recipe">
           <Recipe />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById("root")
 );

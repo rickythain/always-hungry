@@ -19,6 +19,7 @@ function Recipe() {
   const [mealIngredientList, setMealIngredientList] = React.useState([]);
   const [mealYouTubeLink, setMealYouTubeLink] = React.useState("");
   const [similarMeals, setSimilarMeals] = React.useState([]);
+  const [shareTwitter, setShareTwitter] = React.useState("");
 
   const shuffle = (array) => {
     let currentIndex = array.length,
@@ -148,6 +149,17 @@ function Recipe() {
           </div>
           <p>Instructions</p>
           <p className="trial">{meal.strInstructions}</p>
+        </div>
+
+        <div>
+          <h2>Share this recipe!</h2>
+          <a
+            href="http://twitter.com/share?text=[TITLE]&url=[URL]"
+            target="_blank"
+            rel="nofollow"
+          >
+            [Social Media Share Text/Image]
+          </a>
         </div>
 
         <div>
