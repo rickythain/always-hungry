@@ -28,7 +28,7 @@ function CarouselContainer() {
           return (
             <Carousel.Item key={index} interval={200000}>
               <div className="w-100 d-flex flex-lg-row flex-column">
-                <div className="col-12 col-lg-6 bg-red">
+                <div className="col-12 col-lg-5 bg-red">
                   <img
                     className="d-flex w-100"
                     src={meal.strMealThumb}
