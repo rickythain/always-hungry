@@ -40,17 +40,19 @@ function SearchBar({ passResult }) {
   return (
     <div className="search-bar">
       <form className="search-form" onSubmit={onSubmit}>
+        <p>Start searching or choose a category to reveal exciting recipes!</p>
         <div className="search-section">
           <input
             className="searches"
             type="text"
             placeholder="Search for food / ingredient here"
             value={mealName}
+            size="50"
             onChange={(e) => setmealName(e.target.value)}
           />
 
           <button className="search-button" type="submit" value="Search">
-            <Search />
+            Search
           </button>
         </div>
 

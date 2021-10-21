@@ -2,24 +2,31 @@
   width: 100%;
   position: relative;
   height: 300px;
+  margin-bottom: 5rem;
 }
 
 .card button {
   display: flex;
   flex-direction: row;
   border: none;
-  width: 7rem;
-  height: 10rem;
+  width: 100%;
+  height: 100%;
   color: #ffffff;
   background-color: #242424;
   margin: 0 15px;
+  margin-left: 1rem;
 }
 
 .card img {
   border-radius: 50%;
-  width: 10rem;
-  height: 9rem;
+  width: 80%;
+  height: 80%;
   vertical-align: middle;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  margin-left: 2rem;
 }
 
 .card:hover {
@@ -29,12 +36,17 @@
   transform: scale(1.1);
 }
 
-.text h1 {
+.text {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: auto;
   padding-bottom: 1rem;
+  transition: 0.3s ease-in;
+  width: 100%;
+}
+
+.text h1 {
   font-size: 40px;
   font-family: cursive;
 }
@@ -43,9 +55,28 @@
   padding-top: 1rem;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
 }
 
 .card {
   box-shadow: none !important;
   border: none !important;
+  margin-top: 2rem;
+}
+
+.card-box {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .text h1 {
+    font-size: 40px;
+    transform: scale(1.1, 1.1);
+  }
+}
+@media only screen and (max-width: 992px) {
+  .text h1 {
+    font-size: 30px;
+    transform: scale(1.1, 1.1);
+  }
 }
