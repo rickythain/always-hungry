@@ -71,6 +71,7 @@ function Home() {
         {console.log("queryResult" + queryResult)}
         {queryResult ? (
           queryResult.map((result, index) => {
+            console.log(result);
             return <MealCard key={index} meal={result} />;
           })
         ) : (

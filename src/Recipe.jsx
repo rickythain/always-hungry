@@ -138,7 +138,8 @@ function Recipe() {
             <button
               className="remove"
               onClick={() => {
-                setCart(cart.filter((c) => c.idMeal !== meal.idMeal));
+                setCart(cart.filter((c) => c.idMeal !== mealData.idMeal));
+                localStorage.removeItem(mealData.idMeal);
               }}
             >
               Remove from Favourites
@@ -147,7 +148,8 @@ function Recipe() {
             <button
               className="add"
               onClick={() => {
-                setCart([...cart, meal]);
+                setCart([...cart, mealData]);
+                localStorage.setItem(mealData.idMeal, JSON.stringify(mealData));
               }}
             >
               Add to Favourites

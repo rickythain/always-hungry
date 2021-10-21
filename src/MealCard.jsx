@@ -16,11 +16,13 @@ function MealCard({ meal }) {
           </div>
         )}
       </Link>
+      {/* {console.log(cart.includes(meal))} */}
       {cart.includes(meal) ? (
         <button
           className="remove"
           onClick={() => {
             setCart(cart.filter((c) => c.idMeal !== meal.idMeal));
+            localStorage.removeItem(meal.idMeal);
           }}
         >
           Remove from Favourites
@@ -30,6 +32,7 @@ function MealCard({ meal }) {
           className="add"
           onClick={() => {
             setCart([...cart, meal]);
+            localStorage.setItem(meal.idMeal, JSON.stringify(meal));
           }}
         >
           Add to Favourites

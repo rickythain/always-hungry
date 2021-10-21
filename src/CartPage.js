@@ -36,6 +36,7 @@ const CartPage = () => {
                 className="remove"
                 onClick={() => {
                   setCart(cart.filter((c) => c.idMeal !== meal.idMeal));
+                  localStorage.removeItem(meal.idMeal);
                 }}
               >
                 Remove from Favourites
