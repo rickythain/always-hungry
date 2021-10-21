@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Context from "./Context";
+import CartPage from "./CartPage.js";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,10 @@ ReactDOM.render(
 
           <Route path="/recipe">
             <Recipe />
+          </Route>
+
+          <Route path="/cart">
+            <CartPage />
           </Route>
         </Switch>
       </BrowserRouter>

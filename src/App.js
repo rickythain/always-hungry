@@ -4,6 +4,7 @@ import Header from "./Header";
 import Home from "./Home";
 import CartPage from "./CartPage";
 import { useState } from "react";
+import Recipe from "./Recipe";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route exact path="/cart">
           <CartPage />
+        </Route>
+        <Route exact path="/recipe">
+          <Recipe />
         </Route>
       </div>
     </BrowserRouter>

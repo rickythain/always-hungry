@@ -6,10 +6,13 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 import MealCard from "./MealCard";
+import { Cart } from "./Context";
+import "./styles.css";
 
 function Recipe() {
+  const { cart, setCart } = useContext(Cart);
   // obtain meal data sent
   const location = useLocation();
 
@@ -132,6 +135,28 @@ function Recipe() {
         <div>
           <p>meal: {meal.strMeal}</p>
           <img width="200" height="200" src={meal.strMealThumb} />
+          <br />
+          {console.log(cart.includes(meal))}
+          {cart.includes(meal) ? (
+            <button
+              className="remove"
+              onClick={() => {
+                setCart(cart.filter((c) => c.idMeal !== meal.idMeal));
+              }}
+            >
+              Remove from Favourites
+            </button>
+          ) : (
+            <button
+              className="add"
+              onClick={() => {
+                setCart([...cart, meal]);
+                console.log(cart);
+              }}
+            >
+              Add to Favourites
+            </button>
+          )}
           <p>Category: {meal.strCategory}</p>
           <p>Area: {meal.strArea}</p>
           <p>Tags: {mealTags}</p>

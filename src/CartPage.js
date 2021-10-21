@@ -38,7 +38,7 @@ const CartPage = () => {
                   setCart(cart.filter((c) => c.idMeal !== meal.idMeal));
                 }}
               >
-                Remove from Cart
+                Remove from Favourites
               </button>
             </div>
           ))}

@@ -16,7 +16,7 @@ function MealCard({ meal }) {
             {meal.strMeal}
           </div>
         )}
-        {/* {console.log(meal)} */}
+        {console.log(meal)}
       </Link>
       {cart.includes(meal) ? (
         <button
@@ -25,7 +25,7 @@ function MealCard({ meal }) {
             setCart(cart.filter((c) => c.idMeal !== meal.idMeal));
           }}
         >
-          Remove from Cart
+          Remove from Favourites
         </button>
       ) : (
         <button
@@ -35,7 +35,7 @@ function MealCard({ meal }) {
             console.log(cart);
           }}
         >
-          Add to cart
+          Add to Favourites
         </button>
       )}
     </div>
