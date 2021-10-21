@@ -10,6 +10,7 @@ import React, { Component, useState } from "react";
 import Navbar from "./Component/Navbar";
 import Footer from "./Component/Footer";
 import Home from "./Pages/Home";
+import CartPage from "./CartPage";
 
 function App() {
   return (
@@ -21,6 +22,12 @@ function App() {
 
       <Switch>
         <Route path="/recipe" exact component={Recipe} />
+      </Switch>
+
+      <Switch>
+        <Route exact path="/cart">
+          <CartPage />
+        </Route>
       </Switch>
 
       <Footer />

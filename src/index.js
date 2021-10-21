@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Context from "./Context";
+import CartPage from "./CartPage.js";
 // import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -14,17 +16,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <BrowserRouter>
+    <Context>
+      {/* <BrowserRouter>
       <Switch>
         <Route exact path="/"> */}
-    <App />
-    {/* </Route>
+      <App />
+      {/* </Route>
 
         <Route path="/recipe">
           <Recipe />
         </Route>
       </Switch>
     </BrowserRouter> */}
+    </Context>
   </React.StrictMode>,
   document.getElementById("root")
 );

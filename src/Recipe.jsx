@@ -6,12 +6,17 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 import MealCard from "./MealCard";
+import { Cart } from "./Context";
+import "./styles.css";
 
 function Recipe() {
+  const { cart, setCart } = useContext(Cart);
   // obtain meal data sent
   const location = useLocation();
+  const mealObject = location.state?.meal;
+  const mealData = mealObject.meal;
 
   // states
   const [meal, setMeal] = React.useState({});
@@ -43,8 +48,6 @@ function Recipe() {
   // update recipe when meal changes
   React.useEffect(() => {
     // const location = useLocation();
-    const mealObject = location.state?.meal;
-    const mealData = mealObject.meal;
 
     // retrieve full details of the meal
     let apiAddress = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -57,9 +60,6 @@ function Recipe() {
         return data.json();
       })
       .then((dataJson) => {
-        // console.log(
-        //   "incoming data " + JSON.stringify(dataJson.meals[0], null, 2)
-        // );
         setMeal(dataJson.meals[0]);
       });
   }, [location.state?.meal]);
@@ -132,6 +132,29 @@ function Recipe() {
         <div>
           <p>meal: {meal.strMeal}</p>
           <img width="200" height="200" src={meal.strMealThumb} />
+          <br />
+
+          {cart.includes(mealData) ? (
+            <button
+              className="remove"
+              onClick={() => {
+                setCart(cart.filter((c) => c.idMeal !== mealData.idMeal));
+                localStorage.removeItem(mealData.idMeal);
+              }}
+            >
+              Remove from Favourites
+            </button>
+          ) : (
+            <button
+              className="add"
+              onClick={() => {
+                setCart([...cart, mealData]);
+                localStorage.setItem(mealData.idMeal, JSON.stringify(mealData));
+              }}
+            >
+              Add to Favourites
+            </button>
+          )}
           <p>Category: {meal.strCategory}</p>
           <p>Area: {meal.strArea}</p>
           <p>Tags: {mealTags}</p>

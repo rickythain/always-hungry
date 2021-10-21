@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../Styles/Recipe.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
@@ -7,6 +7,7 @@ import HowTo from "../Component/HowTo";
 import RecipeContent from "../Component/RecipeContent";
 import Video from "../Component/Video";
 import Suggested from "../Component/Suggested";
+import { Cart } from "../Context";
 import {
   BrowserRouter,
   Route,
@@ -18,9 +19,11 @@ import {
 import MenuItem from "../Component/MenuItem.js";
 
 function Recipe() {
-  console.log("inside recipe ");
+  const { cart, setCart } = useContext(Cart);
   // obtain meal data sent
   const location = useLocation();
+  const mealObject = location.state?.meal;
+  const mealData = mealObject.meal;
 
   // states
   const [meal, setMeal] = React.useState({});
@@ -52,8 +55,7 @@ function Recipe() {
   // update recipe when meal changes
   React.useEffect(() => {
     // const location = useLocation();
-    const mealObject = location.state?.meal;
-    const mealData = mealObject.meal;
+
     console.log("meal dtaa: " + JSON.stringify(location.state?.meal));
 
     // retrieve full details of the meal
@@ -145,6 +147,33 @@ function Recipe() {
               mealName={meal.strMeal}
               mealCategory={meal.strCategory}
             />
+          </div>
+
+          <div>
+            {cart.some((x) => x.idMeal === meal.idMeal) ? (
+              <button
+                className="remove"
+                onClick={() => {
+                  setCart(cart.filter((c) => c.idMeal !== mealData.idMeal));
+                  localStorage.removeItem(mealData.idMeal);
+                }}
+              >
+                Remove from Favourites
+              </button>
+            ) : (
+              <button
+                className="add"
+                onClick={() => {
+                  setCart([...cart, mealData]);
+                  localStorage.setItem(
+                    mealData.idMeal,
+                    JSON.stringify(mealData)
+                  );
+                }}
+              >
+                Add to Favourites
+              </button>
+            )}
           </div>
 
           <div>
