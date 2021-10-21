@@ -5,21 +5,23 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// import { BrowserRouter } from "react-router-dom";
+import Context from "./Context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <App />
-        </Route>
+    <Context>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <App />
+          </Route>
 
-        <Route path="/recipe">
-          <Recipe />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+          <Route path="/recipe">
+            <Recipe />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </Context>
   </React.StrictMode>,
   document.getElementById("root")
 );
