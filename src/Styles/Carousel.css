@@ -1,0 +1,103 @@
+.carousel {
+  height: 100%;
+}
+
+.carousel .carousel-item {
+  /* height: 100%; */
+  background-color: rgb(252, 248, 248);
+  padding-bottom: 100px;
+  /* transition: 0.3s ease-in; */
+}
+
+.carousel-item img {
+  /* position: absolute; */
+  object-fit: cover;
+  /* width: 20%; */
+  height: 100%;
+  border-end-end-radius: 50%;
+  border-start-start-radius: 50%;
+  /* margin-left: 5rem; */
+  padding: 3rem;
+}
+
+/* .carousel-caption.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.carousel-caption h1 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.carousel-caption p {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.caption {
+  /* display: grid;
+  justify-content: flex-end;
+  padding-bottom: 100px; */
+  padding-right: 69px;
+}
+
+.caption h1 {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.button1 {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  border: 0.1em solid #000000;
+  margin: 0 0.3em 0.3em auto; /*Position*/
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #000000;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+/* .button-location {
+  display: grid !important;
+  flex-direction: column !important;
+} */
+
+.button1:hover {
+  color: #ffffff;
+  background-color: #242424;
+}
+
+/* Phone size starting with Ipad size */
+@media only screen and (max-width: 992px) {
+  .carousel-inner {
+    /* height: 745px !important; */
+  }
+  .caption {
+    /* display: grid;
+    justify-content: flex-end;
+    padding-bottom: 100px;
+    width: 30%;
+    margin-left: 24rem; */
+    padding-right: 0;
+  }
+
+  .caption h1 {
+    justify-content: center;
+  }
+  .button1 {
+    width: 40%;
+    max-width: 480px;
+  }
+  .carousel-item img {
+    padding: 12px;
+  }
+}
+@media only screen and (max-width: 768px) {
+}
