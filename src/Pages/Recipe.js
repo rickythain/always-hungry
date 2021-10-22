@@ -35,6 +35,7 @@ function Recipe() {
   const [mealYouTubeLink, setMealYouTubeLink] = React.useState("");
   const [similarMeals, setSimilarMeals] = React.useState([]);
 
+  // shuffle and array
   const shuffle = (array) => {
     let currentIndex = array.length,
       randomIndex;
@@ -110,6 +111,7 @@ function Recipe() {
       setMealYouTubeLink("");
     }
 
+    // get similar meals based on category of current meal
     if (meal.strCategory) {
       let categoryName = meal.strCategory;
       let addressGetMealOnCategory =

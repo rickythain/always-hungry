@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 function CarouselContainer() {
   const [meals, setMeals] = React.useState([]);
+
+  // get three random meals
   React.useEffect(() => {
     setMeals([]);
     for (let i = 0; i < 3; i++) {
@@ -26,7 +28,7 @@ function CarouselContainer() {
       <Carousel infiniteLoop={true} fade={true} pause={false} variant="dark">
         {meals.map((meal, index) => {
           return (
-            <Carousel.Item key={index} interval={200000}>
+            <Carousel.Item key={index} interval={2000}>
               <div className="w-100 d-flex flex-lg-row flex-column">
                 <div className="col-12 col-lg-5 bg-red">
                   <img
