@@ -2,7 +2,6 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 import "../Styles/Carousel.css";
 import Button from "react-bootstrap/Button";
-import MealCard from "../MealCard";
 import { Link } from "react-router-dom";
 
 function CarouselContainer() {

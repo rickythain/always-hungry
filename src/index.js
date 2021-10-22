@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Recipe from "./Recipe.jsx";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "./index.css";
 import App from "./App";
@@ -17,17 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 ReactDOM.render(
   <React.StrictMode>
     <Context>
-      {/* <BrowserRouter>
-      <Switch>
-        <Route exact path="/"> */}
       <App />
-      {/* </Route>
-
-        <Route path="/recipe">
-          <Recipe />
-        </Route>
-      </Switch>
-    </BrowserRouter> */}
     </Context>
   </React.StrictMode>,
   document.getElementById("root")

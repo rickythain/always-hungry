@@ -1,6 +1,5 @@
 import "./App.css";
 import Axios from "axios";
-// import Recipe from "./Recipe.jsx";
 import Recipe from "./Pages/Recipe.js";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import React, { Component, useState } from "react";

@@ -20,7 +20,6 @@ function allStorage() {
 export const Cart = createContext();
 
 const Context = ({ children }) => {
-  console.log(allStorage());
   const [cart, setCart] = useState(allStorage());
   return <Cart.Provider value={{ cart, setCart }}>{children}</Cart.Provider>;
 };

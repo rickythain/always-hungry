@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Cart } from "./Context";
-import MealCard from "./MealCard.jsx";
 import "./styles.css";
 import "./App.css";
 import { Link } from "react-router-dom";

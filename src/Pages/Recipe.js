@@ -60,8 +60,6 @@ function Recipe() {
   React.useEffect(() => {
     // const location = useLocation();
 
-    console.log("meal dtaa: " + JSON.stringify(location.state?.meal));
-
     // retrieve full details of the meal
     let apiAddress = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
     let mealQuery = mealData.strMeal;
@@ -118,10 +116,6 @@ function Recipe() {
         "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
       let fullAddress = addressGetMealOnCategory + categoryName;
 
-      console.log(
-        `categoryname: ${categoryName}, apifulladdress: ${fullAddress}`
-      );
-
       fetch(fullAddress)
         .then((data) => {
           return data.json();
@@ -136,7 +130,6 @@ function Recipe() {
           receivedMeals = receivedMeals.slice(0, 3);
           setSimilarMeals([]);
           setSimilarMeals(receivedMeals);
-          // console.log("meals: " + JSON.stringify(dataJson.meals, null, 2));
         });
     }
   }, [meal]);

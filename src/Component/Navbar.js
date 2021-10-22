@@ -25,6 +25,20 @@ function Navbar() {
 
         <div className="hiddenLinks">
           <Link to="/"> Home </Link>
+          <Link to="/cart" className="nav-fav">
+            Favourites
+            {cart.length > 0 ? (
+              <div className="fav">
+                <img src={favedHeart} />
+                <div className="fav-count fav-text-white">{cart.length}</div>
+              </div>
+            ) : (
+              <div className="fav">
+                <img src={heart} />
+                <div className="fav-count fav-text-black">0</div>
+              </div>
+            )}
+          </Link>
           {/* <Link to="/recipe"> Recipe </Link>
           <Link to="/about"> About </Link> */}
         </div>
