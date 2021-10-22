@@ -30,11 +30,25 @@ a {
 
 /* ----------------------- */
 
-.productContainer {
+.fav-page {
+  min-height: 80vh;
+}
+
+.fav-count {
+  padding-bottom: 500px;
+}
+
+.productContainer,
+.productSingle {
   display: flex;
   padding: 20px;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-top: 200px;
+}
+
+.productSingle {
+  width: 300px;
 }
 
 .products {

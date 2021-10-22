@@ -41,7 +41,7 @@ function Home() {
           <Menu result={queryResult} />
         ) : (
           <p>
-            Start searching or choose a category to reveal exciting recipes!
+            {/* Start searching or choose a category to reveal exciting recipes! */}
           </p>
         )}
       </div>
