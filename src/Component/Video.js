@@ -1,7 +1,10 @@
 function Video({ mealLink }) {
   return (
     <div className="meal-video">
-      <iframe width="330" height="190" src={mealLink}></iframe>
+      <h3>
+        <u>Tutorial video</u>
+      </h3>
+      <iframe src={mealLink}></iframe>
     </div>
   );
 }

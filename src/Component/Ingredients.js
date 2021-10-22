@@ -5,7 +5,7 @@ function Ingredients({ mealIngredients }) {
   return (
     <div className="meal-ingredient">
       {/* drop down list for ingredients */}
-      <Accordion>
+      <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header>List of Ingredients</Accordion.Header>
           <Accordion.Body>

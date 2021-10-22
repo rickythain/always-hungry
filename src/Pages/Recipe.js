@@ -191,18 +191,27 @@ function Recipe() {
         </div>
       </div>
       <div>
-        <div>
-          {similarMeals.map((meal, index) => {
-            return (
-              <MenuItem
-                key={index}
-                meal={meal}
-                image={meal.strMealThumb}
-                name={meal.strMeal}
-                category={meal.strCategory}
-              />
-            );
-          })}
+        <div className="menu-text">
+          <h2>
+            <u>Similar recipe for you!</u>
+          </h2>
+          <div className="menu-item">
+            {/* <div className="similar-meal">
+            <h2>similar meals!</h2>
+          </div> */}
+
+            {similarMeals.map((meal, index) => {
+              return (
+                <MenuItem
+                  key={index}
+                  meal={meal}
+                  image={meal.strMealThumb}
+                  name={meal.strMeal}
+                  category={meal.strCategory}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
