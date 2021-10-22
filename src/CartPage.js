@@ -17,9 +17,9 @@ const CartPage = () => {
 
   return (
     <div class="fav-page">
-      <span className="fav-count" style={{ fontSize: 30 }}>
+      <div className="fav-count-text" style={{ fontSize: 30 }}>
         You have {cart.length} item in Favourites
-      </span>
+      </div>
       <div className="productContainer">
         {/* {cart && cart.map((prod) => <MealCard prod={prod} key={prod.idMeal} />)} */}
         {cart &&

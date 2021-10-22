@@ -32,10 +32,16 @@ a {
 
 .fav-page {
   min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.fav-count {
-  padding-bottom: 500px;
+.fav-count-text {
+  /* padding-bottom: 500px; */
+  display: flex;
+  margin-top: 20px;
 }
 
 .productContainer,
@@ -44,7 +50,7 @@ a {
   padding: 20px;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 .productSingle {
