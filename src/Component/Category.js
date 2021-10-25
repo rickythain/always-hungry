@@ -44,7 +44,11 @@ function Category({ passResult }) {
   }, [category]);
 
   React.useEffect(() => {
-    passResult(meals);
+    if (meals == 0 || meals == null) {
+      // passResult(null);
+    } else {
+      passResult(meals);
+    }
   }, [meals]);
 
   const clickCategory = (category) => {

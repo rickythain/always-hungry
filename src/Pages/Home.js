@@ -25,6 +25,12 @@ function Home() {
     setQueryResult(categoryResult);
   }, [categoryResult]);
 
+  React.useEffect(() => {
+    // if (JSON.stringify(queryResult) === "[]") console.log("inside");
+  }, [queryResult]);
+
+  React.useEffect(() => {}, []);
+
   return (
     <div className="home">
       <div>
@@ -37,12 +43,12 @@ function Home() {
         <Category passResult={setCategoryResult} />
       </div>
       <div>
-        {queryResult.length !== 0 ? (
-          <Menu result={queryResult} />
+        {JSON.stringify(queryResult) === "[]" ? (
+          <p className="meal-not-found">Sorry! No meal is found :(</p>
+        ) : queryResult === null ? (
+          <p>bye</p>
         ) : (
-          <p>
-            {/* Start searching or choose a category to reveal exciting recipes! */}
-          </p>
+          <Menu result={queryResult} />
         )}
       </div>
     </div>

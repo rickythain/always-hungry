@@ -23,18 +23,25 @@ function SearchBar({ passResult }) {
 
   async function NoResult() {
     var result = await Axios.get(url2);
+
     setrecipes(result.data.meals);
   }
 
   // Runs getRecipes function whenever user submits a search. PreventDefault to disable website refresh upon submit.
   const onSubmit = (e) => {
+    setrecipes([]);
     e.preventDefault();
     getRecipes();
   };
 
   React.useEffect(() => {
-    console.log("input: " + mealName + " retrived: " + recipes);
-    passResult(recipes);
+    // passResult(recipes);
+
+    if (recipes == 0 || recipes == null) {
+      passResult([]);
+    } else {
+      passResult(recipes);
+    }
   }, [recipes]);
 
   return (
@@ -55,32 +62,6 @@ function SearchBar({ passResult }) {
             Search
           </button>
         </div>
-
-        {/* Search Input and passes value of the input to getRecipes function
-    //   <form className="searchForm" onSubmit={onSubmit}>
-    //     <input
-    //       type="text"
-    //       placeholder="Type meal/ingredient name"
-    //       value={mealName}
-    //       onChange={(e) => setmealName(e.target.value)}
-    //     ></input>
-    //     <input type="submit" value="Search" />
-    //   </form> */}
-
-        {/* <p className="search-divider">------------------or------------------</p>
-        <div className="category">
-          <Dropdown className="Dropdown">
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Select Categories
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu className="Dropdown-menu">
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div> */}
       </form>
     </div>
   );
