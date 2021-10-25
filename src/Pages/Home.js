@@ -3,17 +3,12 @@ import CarouselContainer from "../Component/Carousel";
 import SearchBar from "../Component/SearchBar";
 import Category from "../Component/Category";
 import Menu from "./Menu";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import React, { Component, useState } from "react";
-import Axios from "axios";
-import { Cart } from "../Context";
-import { useContext } from "react";
+import React, { useState } from "react";
 
 function Home() {
   const [categoryResult, setCategoryResult] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [queryResult, setQueryResult] = useState([]);
-  const { cart, setCart } = useContext(Cart);
 
   // updates query result section based on result of search on name
   React.useEffect(() => {

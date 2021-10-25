@@ -7,15 +7,8 @@ import Ingredients from "../Component/Ingredients";
 import HowTo from "../Component/HowTo";
 import RecipeContent from "../Component/RecipeContent";
 import Video from "../Component/Video";
-import Suggested from "../Component/Suggested";
 import { Cart } from "../Context";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import MenuItem from "../Component/MenuItem.js";
 import heart from "../Assets/heart02.png";
@@ -41,7 +34,7 @@ function Recipe() {
       randomIndex;
 
     // While there remain elements to shuffle...
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
@@ -137,7 +130,11 @@ function Recipe() {
     <div>
       <div className="Recipe-page">
         <div className="Recipe-Image-box">
-          <img className="recipe-img" src={meal.strMealThumb}></img>
+          <img
+            className="recipe-img"
+            src={meal.strMealThumb}
+            alt={meal.strMeal}
+          ></img>
           <div>
             {cart.some((x) => x.idMeal === meal.idMeal) ? (
               <button
@@ -152,7 +149,7 @@ function Recipe() {
                 <div className="fav-window">
                   <div className="fav-button-text">Remove from Favourites</div>
                 </div>
-                <img className="fav-image" src={favedHeart} />
+                <img className="fav-image" src={favedHeart} alt="favorited" />
               </button>
             ) : (
               <button
@@ -170,7 +167,7 @@ function Recipe() {
                 <div className="fav-window">
                   <div className="fav-button-text">Add to Favourites</div>
                 </div>
-                <img className="fav-image" src={heart} />
+                <img className="fav-image" src={heart} alt="add to favorites" />
               </button>
             )}
           </div>

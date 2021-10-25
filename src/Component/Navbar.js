@@ -19,7 +19,7 @@ function Navbar() {
     <div className="navbar">
       <div className="title" id={openLinks ? "open" : "close"}>
         <Link to="/">
-          <img src={Logo} />{" "}
+          <img src={Logo} alt="always hungry" />
         </Link>
         <h3>alwaysHungry</h3>
 
@@ -29,12 +29,12 @@ function Navbar() {
             Favourites
             {cart.length > 0 ? (
               <div className="fav">
-                <img src={favedHeart} />
+                <img src={favedHeart} alt="favorite added" />
                 <div className="fav-count fav-text-white">{cart.length}</div>
               </div>
             ) : (
               <div className="fav">
-                <img src={heart} />
+                <img src={heart} alt="favorite none" />
                 <div className="fav-count fav-text-black">0</div>
               </div>
             )}
@@ -49,12 +49,12 @@ function Navbar() {
           Favourites
           {cart.length > 0 ? (
             <div className="fav">
-              <img src={favedHeart} />
+              <img src={favedHeart} alt="favorite added" />
               <div className="fav-count fav-text-white">{cart.length}</div>
             </div>
           ) : (
             <div className="fav">
-              <img src={heart} />
+              <img src={heart} alt="favorite none" />
               <div className="fav-count fav-text-black">0</div>
             </div>
           )}

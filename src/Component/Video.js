@@ -4,7 +4,7 @@ function Video({ mealLink }) {
       <h3>
         <u>Tutorial video</u>
       </h3>
-      <iframe src={mealLink}></iframe>
+      <iframe title="tutorial video" src={mealLink}></iframe>
     </div>
   );
 }

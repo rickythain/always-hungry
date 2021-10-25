@@ -1,7 +1,5 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "../Styles/Search.css";
-import Search from "@material-ui/icons/Search";
-import Dropdown from "react-bootstrap/Dropdown";
 import Axios from "axios";
 
 function SearchBar({ passResult }) {
@@ -14,7 +12,7 @@ function SearchBar({ passResult }) {
   // getRecipes function GETS data from provided url and save the data to "recipes" array
   async function getRecipes() {
     var result = await Axios.get(url);
-    if (result.data.meals == 0 || result.data.meals == null) {
+    if (result.data.meals === 0 || result.data.meals === null) {
       NoResult();
     } else {
       setrecipes(result.data.meals);
@@ -37,7 +35,7 @@ function SearchBar({ passResult }) {
   React.useEffect(() => {
     // passResult(recipes);
 
-    if (recipes == 0 || recipes == null) {
+    if (recipes === 0 || recipes === null) {
       passResult([]);
     } else {
       passResult(recipes);

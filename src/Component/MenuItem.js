@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Menu from "../Pages/Menu";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Cart } from "../Context";
 import { useContext } from "react";
@@ -33,7 +32,7 @@ function MenuItem({ meal, image, name, category }) {
           <div className="fav-window">
             <div className="fav-button-text">Remove from Favourites</div>
           </div>
-          <img className="fav-image" src={favedHeart} />
+          <img className="fav-image" src={favedHeart} alt="favorited" />
         </button>
       ) : (
         <button
@@ -48,7 +47,7 @@ function MenuItem({ meal, image, name, category }) {
           <div className="fav-window">
             <div className="fav-button-text">Add to Favourites</div>
           </div>
-          <img className="fav-image" src={heart} />
+          <img className="fav-image" src={heart} alt="click to favorite" />
         </button>
       )}
     </div>

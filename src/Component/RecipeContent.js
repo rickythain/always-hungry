@@ -5,11 +5,11 @@ function RecipeContent({ mealName, mealCategory }) {
         <h1>{mealName}</h1>
       </div>
       <div className="recipe-content">
-        <p className="recipe-tags">
-          <p class="recipe-tag" id="category">
+        <div className="recipe-tags">
+          <p className="recipe-tag" id="category">
             Category: {mealCategory}
           </p>
-        </p>
+        </div>
       </div>
     </div>
   );

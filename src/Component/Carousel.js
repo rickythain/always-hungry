@@ -1,7 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "../Styles/Carousel.css";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 function CarouselContainer() {
@@ -24,7 +23,7 @@ function CarouselContainer() {
 
   return (
     <div>
-      <Carousel infiniteLoop={true} fade={true} pause={false} variant="dark">
+      <Carousel fade={true} pause={false} variant="dark">
         {meals.map((meal, index) => {
           return (
             <Carousel.Item key={index} interval={2000}>
@@ -46,9 +45,7 @@ function CarouselContainer() {
                     <Link
                       to={{ pathname: "/recipe", state: { meal: { meal } } }}
                     >
-                      <a href="something" class="button1">
-                        Get Recipe
-                      </a>
+                      <div className="button1">Get Recipe</div>
                     </Link>
                   </div>
                 </div>

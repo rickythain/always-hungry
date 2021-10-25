@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Cart } from "./Context";
 import "./styles.css";
 import "./App.css";
-import { Link } from "react-router-dom";
 import MenuItem from "./Component/MenuItem";
 
 const CartPage = () => {
-  const [total, setTotal] = useState();
-
   const { cart, setCart } = useContext(Cart);
 
   //   useEffect(() => {
@@ -15,7 +12,7 @@ const CartPage = () => {
   //   }, [cart]);
 
   return (
-    <div class="fav-page">
+    <div className="fav-page">
       <div className="fav-count-text" style={{ fontSize: 30 }}>
         You have {cart.length} item in Favourites
       </div>

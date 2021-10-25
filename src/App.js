@@ -1,8 +1,7 @@
 import "./App.css";
-import Axios from "axios";
 import Recipe from "./Pages/Recipe.js";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import React, { Component, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
 import Navbar from "./Component/Navbar";
 import Footer from "./Component/Footer";
 import Home from "./Pages/Home";
